@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "WindClipper",
+  "version": "1.0.0",
+  "icons": {
+    "16": "src/assets/images/16.png",
+    "48": "src/assets/images/48.png",
+    "128": "src/assets/images/128.png"
+  },
+  "action": {
+    "default_title": "windclipper",
+    "default_icon": "src/assets/images/48.png",
+    "icons": {
+      "16": "src/assets/images/16.png",
+      "48": "src/assets/images/48.png",
+      "128": "src/assets/images/128.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "declarativeContent"
+  ],
+  "background": {
+    "service_worker": "src/background/background.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "src/content/content.ts"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
